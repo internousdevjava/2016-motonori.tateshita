@@ -5,8 +5,21 @@ import java.util.Random;
 
 public class KisoKadai2 {
 
+	public static void main(String[] args){
+		for(int i=0;i<3;){
+		System.out.println("モードを入力してください 1:[high&low] 2:[桁数 9:[終了]]");
+		int userAns = getNumberInput();
+		if(userAns==1){
+			hl(null);
+		}else if(userAns==2){
+			ketasuu(null);
+		}else if(userAns==9){
+			break;
+		}
+		}
+	}
+public static void hl(String[] args) {
 
-public static void main(String[] args) {
 	Random random = new Random();
 
     int ans = 1+random.nextInt(99);
@@ -59,6 +72,46 @@ public static void main(String[] args) {
     	System.out.println("答えは"+ans+"でしたーｗｗｗ数字あてれんかーｗｗｗ");
     }
     }
+public static void ketasuu(String[] args) {
+	Random random = new Random();
+
+    int ans = random.nextInt(1000);
+    int count = 0;
+    String s=""+ ans;
+   int keta = s.length();
+    while(count < 10) {
+        System.out.print("答えは"+keta+"桁です。あと"+(10-count)+"回！数値を入力してください > ");
+        int userAns = getNumberInput();
+        System.out.printf("\t%d ..... ", userAns);
+        if (ans == userAns) {
+            System.out.println("正解！");
+            break;
+        } else {
+        	 String ua=""+ userAns;
+        	 int uaketa = ua.length();
+        	 String[] sArray=s.split("");
+        	 String[] uaArray=ua.split("");
+        	 if(keta==uaketa){
+        		 System.out.print("左から");
+        		 for(int i=0;i<keta;i++){
+        			 int sA = Integer.parseInt(sArray[i]);
+        			 int usA=Integer.parseInt(uaArray[i]);
+        			 if(sA!=usA){
+        				System.out.print((i+1)+",");
+        			 }
+        		 }
+        		 System.out.println("番目の数が違うよ!");
+
+        	 }else{
+        		 System.out.print("桁数が違うよ！");
+        			 }
+        }
+        count++;
+    }
+    if(count==10){
+    	System.out.println("数字あてれんかーｗｗｗ");
+    }
+    }
 
 
 
@@ -76,6 +129,10 @@ private static int getNumberInput() {
 
     return userAns;
 }
+
+
+
+
     private static String getStringInput() {
         BufferedReader br = null;
         String line = null;

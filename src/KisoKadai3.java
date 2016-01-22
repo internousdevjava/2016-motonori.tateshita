@@ -13,7 +13,7 @@ public class KisoKadai3 {
 		for(int q=0;q<8;){
 			System.out.println();
 			System.out.println("現在地は"+adress);
-			System.out.print("メニュー:フォルダーを作るなら1,ファイルを作るなら2,ファイルを読むなら3,フォルダに入るなら4,一覧表示するなら5,終了するなら9を入力してください > ");
+			System.out.print("メニュー:1:フォルダーを作るなら 2:ファイルを作る 3:ファイルを読むなら 4:フォルダに入るなら 5:一覧表示するなら 6:初期位置に戻る 7絶対パスを指定して移動する 9:終了する> ");
 			int menu = getNumberInput();
 			if(menu==9){
 				break;
@@ -31,6 +31,14 @@ public class KisoKadai3 {
 		 	    	dmove(null);
 		 	    }else if(menu==5){
 		 	    	look(null);
+		 	    }else if(menu==6){
+		 	    	adress="c:\\";
+		 	    }else if(menu==7){
+		 	    	InputStreamReader is = new InputStreamReader(System.in);
+		 	        BufferedReader br = new BufferedReader(is);
+		 			    System.out.println("絶対パスを入力してください：");
+		 				String Name = br.readLine();
+		 				adress=Name;
 		 	    }
 		}
 	}

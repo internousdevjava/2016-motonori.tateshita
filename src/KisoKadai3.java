@@ -7,22 +7,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class KisoKadai3 {
+	//メニュー
 	public static void main(String[] args) throws IOException{
 
 
 		for(int q=0;q<8;){
 			System.out.println();
-			System.out.println("現在地は"+adress);
+			System.out.println("現在地は"+adress+"で作業しています");
 			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-			System.out.print("メニュー:1:フォルダーを作るなら 2:ファイルを作る 3:ファイルを読むなら 4:フォルダに入るなら 5:一覧表示するなら 6:初期位置に戻る 7絶対パスを指定して移動する 9:終了する> ");
+			System.out.print("メニュー:1:フォルダーを作る 2:ファイルを作る 3:ファイルを読む(ファイルの追記、上書き、読み込み) 4:フォルダに入るなら 5:一覧表示するなら 6:初期位置に戻る 7絶対パスを指定して移動する 9:終了する> ");
 			int menu = getNumberInput();
 			if(menu==9){
 				break;
-
 			}else if(menu==1){
 				dmake(null);
-
-
 			}else if(menu==2){
 				fmake(null);
 
@@ -47,7 +45,7 @@ public class KisoKadai3 {
 		 	    }
 		}
 	}
-
+	//5一覧表示
 	public static void look(String[] args) {
 	    String path = adress;
 	    File dir = new File(path);
@@ -176,6 +174,7 @@ public class KisoKadai3 {
 			String Name = br.readLine();
 			File newdir = new File(adress+"\\"+Name);
 			newdir.mkdir();
+			System.out.println(Name+"を作成しました");
 		    } catch(IOException e) {
 	            e.printStackTrace();
 	        }
@@ -216,31 +215,30 @@ public class KisoKadai3 {
 		    InputStreamReader is = new InputStreamReader(System.in);
 	        BufferedReader br = new BufferedReader(is);
 	        String Name="";
-			    System.out.println("フォルダ名を入力してください移動したくない場合はエンターを：");
-				 Name = br.readLine();
-				for (int i = 0; i < files.length; i++) {
-			        String file = files[i];
-			       if(Name.equals(file)){
-			    	  dmoveeq=1;
-			    	   if(dflag==1){
-			    		   adress=adress+"\\"+Name;
-			    		   System.out.println(adress+"に移動しました");
-			    	   }
-			    	   if(dflag==0){
-			    		   adress=null;
+	        System.out.println("フォルダ名を入力してください移動したくない場合はエンターを：");
+	        Name = br.readLine();
+	        for (int i = 0; i < files.length; i++) {
+	        	String file = files[i];
+	        	if(Name.equals(file)){
+	        		dmoveeq=1;
+	        		if(dflag==1){
+	        			adress=adress+"\\"+Name;
+	        			System.out.println(adress+"に移動しました");
+	        		}
+	        		if(dflag==0){
+	        			adress=null;
+	        			adress="c:\\"+Name;
+	        			dflag=1;
+	        			System.out.println(adress+"に移動しました");
+	        		}
 
-			    		   adress="c:\\"+Name;
-			    		   dflag=1;
-			    		   System.out.println(adress+"に移動しました");
-			    	   }
-
-			       }
-				}
-				if(dmoveeq==0){
-					System.out.println("存在しなかったため新たにフォルダを作成しました移動したい場合はメニューから再指定してください");
-					File newdir = new File(adress+"\\"+Name);
-					newdir.mkdir();
-				}
+	        	}
+	        }
+	        if(dmoveeq==0){
+	        	System.out.println("存在しなかったため新たにフォルダを作成しました移動したい場合はメニューから再指定してください");
+	        	File newdir = new File(adress+"\\"+Name);
+	        	newdir.mkdir();
+	        }
 	 }
 //キーボード入力に必要なメソッド
 	 private static int getNumberInput() {

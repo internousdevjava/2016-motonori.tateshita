@@ -7,7 +7,7 @@ public class KisoKadai2 {
 
 	public static void main(String[] args){
 		for(int i=0;i<3;){
-		System.out.println("モードを入力してください 1:[high&low] 2:[桁数 9:[終了]]");
+		System.out.println("モードを入力してください 1:[high&low] 2:[桁数] 9:[終了]");
 		int userAns = getNumberInput();
 		if(userAns==1){
 			hl(null);
@@ -69,7 +69,7 @@ public static void hl(String[] args) {
         count++;
     }
     if(count==10){
-    	System.out.println("答えは"+ans+"でしたーｗｗｗ数字あてれんかーｗｗｗ");
+    	System.out.println("答えは"+ans+"でしたー残念でしたー！");
     }
     }
 public static void ketasuu(String[] args) {

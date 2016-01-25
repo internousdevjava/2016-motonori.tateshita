@@ -185,7 +185,7 @@ public class KisoKadai3 {
 
 		 InputStreamReader is = new InputStreamReader(System.in);
          BufferedReader br = new BufferedReader(is);
-
+         System.out.println("注意:Cドライブには作れないです");
          System.out.print("ファイル名を入力してください：");
 
          String name = br.readLine();

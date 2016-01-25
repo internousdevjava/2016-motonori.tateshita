@@ -15,7 +15,7 @@ public class KisoKadai3 {
 			System.out.println();
 			System.out.println("現在地は"+adress+"で作業しています");
 			System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-			System.out.print("メニュー:1:フォルダーを作る 2:ファイルを作る 3:ファイルを読む(ファイルの追記、上書き、読み込み) 4:フォルダに入るなら 5:一覧表示するなら 6:初期位置に戻る 7絶対パスを指定して移動する 9:終了する> ");
+			System.out.print("メニュー:1:フォルダーを作る 2:ファイルを作る 3:ファイルを読む(ファイルの追記、上書き、読み込み) 4:フォルダに入るなら 5:一覧表示するなら 6:初期位置に戻る  9:終了する> ");
 			int menu = getNumberInput();
 			if(menu==9){
 				break;
@@ -33,13 +33,6 @@ public class KisoKadai3 {
 		 	    }else if(menu==6){
 		 	    	adress="c:\\";
 		 	    	dflag=0;
-		 	    }else if(menu==7){
-		 	    	InputStreamReader is = new InputStreamReader(System.in);
-		 	        BufferedReader br = new BufferedReader(is);
-		 			System.out.println("注意！間違った入力をした場合メニューで6を押した後やりなおしてください");
-		 	        System.out.println("絶対パスを入力してください：");
-		 			String Name = br.readLine();
-		 			adress=Name;
 		 	    }else{
 		 	    	System.out.println("対応したコマンドではありません");
 		 	    }
@@ -159,7 +152,7 @@ public class KisoKadai3 {
 		    			   System.out.println("ファイルの作成に失敗しました");
 		    		   }
 		    	   }catch(IOException e){
-		    		   System.out.println(e);;
+		    		   System.out.println(e);
 		    	   }
 		       }
 		       }

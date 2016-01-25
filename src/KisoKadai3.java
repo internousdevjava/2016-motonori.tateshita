@@ -142,26 +142,29 @@ public class KisoKadai3 {
 		    			    }catch(IOException e){
 		    			      System.out.println(e);
 		    			    }
+		    			  }else{
+				    		   System.out.println("対応したコマンドではありません");
 		    			  }
-		    	   }
 		       if(flageq==0){
 
 
 
 		    	   System.out.println("存在しなかったため現在地にファイルを作成します");
-		           File newfile = new File(adress+"\\"+Name);
+		    	   File newfile = new File(adress+"\\"+Name);
 
-		   	    try{
-		   	      if (newfile.createNewFile()){
-		   	        System.out.println("ファイルの作成に成功しました");
-		   	      }else{
-		   	        System.out.println("ファイルの作成に失敗しました");
-		   	      }
-		   	    }catch(IOException e){
-		   	      System.out.println(e);;
-		   }
+		    	   try{
+		    		   if (newfile.createNewFile()){
+		    			   System.out.println("ファイルの作成に成功しました");
+		    		   }else{
+		    			   System.out.println("ファイルの作成に失敗しました");
+		    		   }
+		    	   }catch(IOException e){
+		    		   System.out.println(e);;
+		    	   }
 		       }
 		       }
+			}
+
 
 
 			}

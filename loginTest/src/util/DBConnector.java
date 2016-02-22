@@ -18,14 +18,15 @@ import java.sql.SQLException;
 public class DBConnector{
 
 	private static String driverName = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/struts2"; //struts2 DB名
+	private static String url = "jdbc:mysql://localhost:3306/"; //struts2 DB名
 	private static String user = "root"; //DBのユーザ名
 	private static String pass = "mysql";  //DBに接続するときのパスワード
 
 
-	public static Connection getConnection(){
+	public static Connection getConnection(String DBName){
 
 		Connection con = null;
+		url=url+DBName;
 		try{
 			Class.forName(driverName);
 			con = DriverManager.getConnection(url,user,pass);
@@ -36,7 +37,7 @@ public class DBConnector{
 		catch (SQLException e){
 			e.printStackTrace();
 		}
-
+		url = "jdbc:mysql://localhost:3306/";
 	return con;
 	}
 }

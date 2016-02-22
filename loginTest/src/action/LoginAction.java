@@ -6,7 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.LoginDAO;
+import dao.MysqlConectorDAO;
 
 public class LoginAction extends ActionSupport implements SessionAware{
 	public String id;
@@ -18,9 +18,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	 *
 	 */
 	public String execute(){
-		LoginDAO dao = new LoginDAO();
+		MysqlConectorDAO dao = new MysqlConectorDAO("struts2");
 
-		boolean loginResult = dao.select(id,password);
+		boolean loginResult = dao.login(id,password);
 
 		if(!loginResult){
 			return ERROR;
